@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "300886346848",
+    "firebase_url": "https://admob-app-id-7716540441.firebaseio.com",
+    "project_id": "admob-app-id-7716540441",
+    "storage_bucket": "admob-app-id-7716540441.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300886346848:android:139fcdada83bfdbe",
+        "android_client_info": {
+          "package_name": "jp.co.jyl.bustime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300886346848-bsu2ohb6eged893823cjhi1qf6qkd9mq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6yVr4BWIzfkewefLfq96UfVux0YkZ0AM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

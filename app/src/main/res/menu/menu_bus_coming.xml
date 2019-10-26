@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".BusComingActivity">
+
+    <item
+        android:id="@+id/miActionHelp"
+        android:icon="@drawable/ic_action_ic_question"
+        android:title="@string/action_help"
+        android:visible="true"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+         />
+    <item
+        android:id="@+id/miActionRefresh"
+        android:icon="@drawable/ic_action_ic_refresh"
+        android:title="@string/action_refresh"
+        android:visible="true"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/miActionProgress"
+        android:title="Loading..."
+        android:visible="true"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        app:actionLayout="@layout/action_view_progress" />
+</menu>

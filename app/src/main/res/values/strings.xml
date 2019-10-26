@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Bus Access Information</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="going_text">go</string>
+    <string name="going_start_end">(outbound)</string>
+    <string name="going_end_start">(inbound)</string>
+    <string name="title_activity_time_table">TimeTable</string>
+    <string name="title_activity_help">Help</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="bus_stop_name_label">Bus Stop Name</string>
+    <string name="bus_route_name_label">Bus Route Name</string>
+    <string name="bus_going_name_label">Going</string>
+
+    <string name="msg_no_internet">Cannot connect to internet</string>
+
+    <string name="column_title_hour">Hour</string>
+    <string name="column_title_workday">Work Day</string>
+    <string name="column_title_saturday">SaturDay</string>
+    <string name="column_title_holiday">Holiday</string>
+
+    <string name="tab_title_history">History</string>
+    <string name="tab_title_search">Bus Stop Search</string>
+
+    <string name="title_activity_main">Search Bus Access Information</string>
+    <string name="action_help">Help</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="guide_bus_coming">(1)The information will be refreshed in one minute\n(2)Press bus stop icon to show time tables</string>
+    <string name="banner_ad_unit_id">ca-app-pub-9099051044472779/1670006841</string>
+    <string name="lbl_bus_stop_name">Bus Stop Name</string>
+    <string name="lbl_btn_search">Search</string>
+    <string name="lbl_btn_clear">Clear</string>
+    <string name="lbl_btn_delete">Delete</string>
+    <string name="lbl_btn_show_bus_coming">Show Bus Coming Info</string>
+    <string name="msg_no_result">Nothing Matched</string>
+    <string name="msg_no_selected">Please select one bus route.</string>
+    <string name="msg_4_selected">Max 3 bus routes should be selected.</string>
+    <string name="msg_no_history">There is no search history.</string>
+    <string name="msg_notsame_busstop">Please select the same bus stop.</string>
+    <string name="msg_no_timetable">No time table.</string>
+    <string name="msg_toomany_result">Too many result</string>
+    <string name="msg_server_busy">Server is busy</string>
+    <string name="msg_nobus_coming">There is no bus coming</string>
+    <string name="msg_failget_timetable">Cannot get time table</string>
+
+    <string name="dlg_title_bus_route_info">Bus Route Info-</string>
+    <string name="Initializing">Initializing...</string>
+
+    <string name="tab_title_timetable_hist">TimeTableHistory</string>
+
+    <string name="help_use_info_title">How to use</string>
+    <string name="help_button_descrp_title">Button description</string>
+    <string name="help_use_step1">
+    In the "Bus Stop Search" tab, enter the bus stop name or part of the name, then press the "Search" button.
+    </string>
+    <string name="help_use_step2">
+    From the displayed candidates, select up to three routes you want to know. \n* You need to select the same bus stop.
+    </string>
+    <string name="help_use_step3">
+    Click the "Show Bus Coming Info" button at the bottom of the screen.
+    </string>
+    <string name="help_use_step4">
+    In the bus coming screen,when the bus icon is pressed,the bus timetable will be displayed.
+    </string>
+    <string name="help_button_search">Search</string>
+    <string name="help_button_clear">Clear the search content and result</string>
+    <string name="help_button_route">Show the bus route</string>
+    <string name="help_button_timer">Show the timetable of the bus</string>
+    <string name="help_button_delete">Delete the search history</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

@@ -14,11 +14,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/scrollView"
+        android:fillViewport="true"
+        android:layout_above="@+id/adView"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp">
-        android:layout_above="@+id/adView"
+
         <jp.co.jyl.bustime.view.AccessDrawView
         android:id="@+id/busview"
         android:layout_width="wrap_content"

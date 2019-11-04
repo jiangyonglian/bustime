@@ -23,7 +23,7 @@ public class Helper {
 
     private Helper(){}
 
-    public  static void saveStringToPreference(Context context,String key,String value){
+    public static void saveStringToPreference(Context context,String key,String value){
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(key,value);
@@ -103,7 +103,7 @@ public class Helper {
         return h;
     }
 
-    public static  void drawText(Canvas canvas,String text,Rect rect,
+    public static void drawText(Canvas canvas,String text,Rect rect,
                           int color,Paint paint,int textAlign){
         int x1 = rect.left;
         int y1 = rect.top;
@@ -131,7 +131,7 @@ public class Helper {
         float baseY = centerY -  (fontMetrics.ascent + fontMetrics.descent) / 2;
 
         // テキストの描画
-        paint.setStyle(Paint.Style.STROKE);
+        paint.setStyle(Paint.Style.FILL);
         paint.setColor(color);
         canvas.drawText( text, baseX, baseY, paint);
     }

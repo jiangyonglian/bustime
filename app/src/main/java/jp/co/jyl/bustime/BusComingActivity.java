@@ -17,6 +17,15 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import android.app.Activity;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import jp.co.jyl.bustime.bean.BusComingInfo;
 import jp.co.jyl.bustime.bean.BusDirection;
 import jp.co.jyl.bustime.bean.BusDirectionStopInfo;
@@ -29,11 +38,8 @@ import jp.co.jyl.bustime.service.BusPlaceSearchFactory;
 import jp.co.jyl.bustime.view.AccessDrawView;
 import jp.co.jyl.bustime.view.Helper;
 
-//import com.google.android.gms.ads.AdRequest;
-//import com.google.android.gms.ads.AdView;
-//import com.google.android.gms.ads.MobileAds;
 
-public class BusComingActivity extends Activity  {
+public class BusComingActivity extends AppCompatActivity {
     public static final String SELECTED_HIS_ITEM_ID = "SELECTED_HIS_ITEM_ID";
 
     // Instance of the progress action-view
@@ -63,6 +69,15 @@ public class BusComingActivity extends Activity  {
 //        AdView mAdView = (AdView) findViewById(R.id.adView);
 //        AdRequest adRequest = new AdRequest.Builder().build();
 //        mAdView.loadAd(adRequest);
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        AdView mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         Intent intent = getIntent();
         //履歴ID

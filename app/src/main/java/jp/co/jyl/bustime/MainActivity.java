@@ -1,25 +1,24 @@
 package jp.co.jyl.bustime;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.app.ActionBar;
 
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import jp.co.jyl.bustime.view.fragment.BusStopSearchFragment;
-import jp.co.jyl.bustime.view.fragment.FragmentTabListener;
-import jp.co.jyl.bustime.view.fragment.SearchHistoryFragment;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.MenuItem;
+import android.view.ViewGroup;
+
+import jp.co.jyl.bustime.repository.BusRepository;
 import jp.co.jyl.bustime.repository.DBHelper;
+import jp.co.jyl.bustime.repository.RepositoryFactory;
+import jp.co.jyl.bustime.view.fragment.BusStopSearchFragment;
+import jp.co.jyl.bustime.view.fragment.SearchHistoryFragment;
 import jp.co.jyl.bustime.view.fragment.TimeTableHistoryFragment;
 
 
@@ -34,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         DBHelper.initializeDB(this.getApplicationContext());
         setupBottomNavigation();
+        initFragment();
     }
+
+
 
     @Override
     protected void onDestroy() {
@@ -42,35 +44,58 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.miMainHelp) {
-            Intent intent = new Intent(this, HelpActivity.class);
-            startActivity(intent);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    private void setupBottomNavigation(){
+    private void setupBottomNavigation() {
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
+        navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.navigation_history:
+                        switchFragment(new SearchHistoryFragment());
+                        return true;
+                    case R.id.navigation_search:
+                        switchFragment(new BusStopSearchFragment());
+                        return true;
+                    case R.id.navigation_timetable:
+                        switchFragment(new TimeTableHistoryFragment());
+                        return true;
+                    case R.id.navigation_help:
+                        Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+                        startActivity(intent);
+                        return true;
 
+                }
+                return false;
+            }
+        });
     }
+
+    private void switchFragment(Fragment newFragment) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment_container, newFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void initFragment() {
+        Fragment fragment = null;
+        BusRepository repository = RepositoryFactory.i.getBusRepository();
+        int historyCnt = repository.getCountOfHistory();
+        if (historyCnt > 0){
+            fragment = new SearchHistoryFragment();
+        }else{
+            fragment = new BusStopSearchFragment();
+        }
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.fragment_container, fragment);
+
+        transaction.commit();
+    }
+
 }
+
+
+

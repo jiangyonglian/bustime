@@ -2,7 +2,7 @@ package jp.co.jyl.bustime.view.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +25,7 @@ import jp.co.jyl.bustime.repository.RepositoryFactory;
 import jp.co.jyl.bustime.view.Helper;
 
 /**
- * A fragment representing a list of Items.
+ * バス停検索履歴フラグメント.
  */
 public class SearchHistoryFragment extends Fragment {
 

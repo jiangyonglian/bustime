@@ -3,12 +3,13 @@ package jp.co.jyl.bustime;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ScrollView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Date;
 
@@ -25,7 +26,7 @@ import jp.co.jyl.bustime.view.Helper;
 import jp.co.jyl.bustime.view.TimeTableView;
 
 
-public class TimeTableActivity extends Activity {
+public class TimeTableActivity extends AppCompatActivity {
 
     public static final String BUS_DIRECTION_STOP_INO =  "BUS_DIRECTION_STOP_INO";
 

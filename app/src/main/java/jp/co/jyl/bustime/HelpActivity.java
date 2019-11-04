@@ -1,10 +1,10 @@
 package jp.co.jyl.bustime;
 
-import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-public class HelpActivity extends Activity {
+public class HelpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

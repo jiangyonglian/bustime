@@ -176,7 +176,7 @@ public class TokyoBusPlaceSearchImpl implements BusPlaceSearch {
 
     private String getBusComingInfoURL(int busStopCD){
         final String urlTemplate =
-                "http://tobus.jp/blsys/navi?LCD=&VCD=cresultrsi&ECD=aprslt&slst={0}";
+                "https://tobus.jp/blsys/navi?LCD=&VCD=cresultrsi&ECD=aprslt&slst={0}";
         String url = urlTemplate.replace("{0}",String.valueOf(busStopCD));
         Log.i(this.getClass().getSimpleName(), "access url:" + url);
         return url;
@@ -184,7 +184,7 @@ public class TokyoBusPlaceSearchImpl implements BusPlaceSearch {
 
     private String getBusRouteStatusURL(int busRouteCD){
         final String urlTemplate =
-                "http://tobus.jp/blsys/navi?VCD=cresultapr&ECD=rsirslt&LCD=&RTMCD={0}";
+                "https://tobus.jp/blsys/navi?VCD=cresultapr&ECD=rsirslt&LCD=&RTMCD={0}";
         String url = urlTemplate.replace("{0}",String.valueOf(busRouteCD));
         Log.i(this.getClass().getSimpleName(),"access url:" + url);
         return url;

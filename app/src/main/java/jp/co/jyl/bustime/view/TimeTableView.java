@@ -108,6 +108,15 @@ public class TimeTableView extends View {
         drawTimeTable(canvas,x1,y1,x2,subWidth,drawingInfoList);
     }
 
+    private void drawRect(Canvas canvas,Rect rect,int fillColor,int strokeColor){
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(fillColor);
+        canvas.drawRect(rect,paint);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setColor(strokeColor);
+        canvas.drawRect(rect,paint);
+    }
+
     private void drawTimeTable(Canvas canvas,int x1,int y1,int x2,int subWidth,
                                List<DrawingInfo> drawingInfoList ){
 
@@ -124,9 +133,8 @@ public class TimeTableView extends View {
 
             //draw hour
             int subXRight = x + HOUR_COLUMN_WIDTH;
-            paint.setStyle(Paint.Style.FILL);
-            paint.setColor(Color.rgb(176, 196, 222));
-            canvas.drawRect(new Rect(x,y1,subXRight,y2),paint);
+            drawRect(canvas,new Rect(x,y1,subXRight,y2),Color.rgb(176, 196, 222),
+                    Color.BLACK);
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.BLACK);
             Rect rect = new Rect(x,y1,subXRight,y2);
@@ -137,19 +145,19 @@ public class TimeTableView extends View {
             //平日
             x = subXRight;
             subXRight = x + subWidth;
-            canvas.drawRect(new Rect(x,y1,subXRight,y2),paint);
+            drawRect(canvas,new Rect(x,y1,subXRight,y2),Color.WHITE, Color.BLACK);
             drawOneTimeTable(canvas,x,y1,subXRight,y2,Color.BLACK,drawInfo.workDayList);
 
             //土曜
             x = subXRight;
             subXRight = x + subWidth;
-            canvas.drawRect(new Rect(x,y1,subXRight,y2),paint);
+            drawRect(canvas,new Rect(x,y1,subXRight,y2),Color.WHITE, Color.BLACK);
             drawOneTimeTable(canvas,x,y1,subXRight,y2,Color.BLACK,drawInfo.saturDayList);
 
             //休日
             x = subXRight;
             subXRight = x + subWidth;
-            canvas.drawRect(new Rect(x,y1,subXRight,y2),paint);
+            drawRect(canvas,new Rect(x,y1,subXRight,y2),Color.WHITE, Color.BLACK);
             drawOneTimeTable(canvas,x,y1,subXRight,y2,Color.BLACK,drawInfo.holiDayList);
 
             y1 = y2;
@@ -199,12 +207,12 @@ public class TimeTableView extends View {
         canvas.drawRect(new Rect(x1,y1,x2,y2),paint);
 
         int subXRight = x1 + HOUR_COLUMN_WIDTH;
-        paint.setStyle(Paint.Style.STROKE);
+        paint.setStyle(Paint.Style.FILL);
         paint.setColor(Color.BLACK);
 
         //時
         Rect rect = new Rect(x1,y1,subXRight,y2);
-        canvas.drawRect(rect,paint);
+        drawRect(canvas,rect,Color.rgb(176, 224, 230), Color.BLACK);
         Helper.drawText(canvas,res.getString(R.string.column_title_hour),
                 rect,Color.BLACK,paint,
                 Helper.TEXT_ALIGN_CENTER);
@@ -213,7 +221,7 @@ public class TimeTableView extends View {
         x1 = subXRight;
         subXRight = x1 + subWidth;
         rect = new Rect(x1,y1,subXRight,y2);
-        canvas.drawRect(rect,paint);
+        drawRect(canvas,rect,Color.rgb(176, 224, 230), Color.BLACK);
         Helper.drawText(canvas,res.getString(R.string.column_title_workday),
                 rect,Color.BLACK,paint,
                 Helper.TEXT_ALIGN_CENTER);
@@ -222,7 +230,7 @@ public class TimeTableView extends View {
         x1 = subXRight;
         subXRight = x1 + subWidth;
         rect = new Rect(x1,y1,subXRight,y2);
-        canvas.drawRect(new Rect(x1,y1,subXRight,y2),paint);
+        drawRect(canvas,rect,Color.rgb(176, 224, 230), Color.BLACK);
         Helper.drawText(canvas,res.getString(R.string.column_title_saturday),
                 rect,Color.BLACK,paint,
                 Helper.TEXT_ALIGN_CENTER);
@@ -231,7 +239,7 @@ public class TimeTableView extends View {
         x1 = subXRight;
         subXRight = x1 + subWidth;
         rect = new Rect(x1,y1,subXRight,y2);
-        canvas.drawRect(new Rect(x1,y1,subXRight,y2),paint);
+        drawRect(canvas,rect,Color.rgb(176, 224, 230), Color.BLACK);
         Helper.drawText(canvas,res.getString(R.string.column_title_holiday),
                 rect,Color.BLACK,paint,
                 Helper.TEXT_ALIGN_CENTER);

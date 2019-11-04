@@ -3,8 +3,8 @@ package jp.co.jyl.bustime.view.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,19 +17,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jp.co.jyl.bustime.BusComingActivity;
 import jp.co.jyl.bustime.R;
 import jp.co.jyl.bustime.TimeTableActivity;
 import jp.co.jyl.bustime.bean.BusDirectionStopInfo;
-import jp.co.jyl.bustime.bean.SearchHistoryInfo;
 import jp.co.jyl.bustime.bean.TimeTableHistoryInfo;
 import jp.co.jyl.bustime.repository.BusRepository;
 import jp.co.jyl.bustime.repository.RepositoryFactory;
 import jp.co.jyl.bustime.view.Helper;
 
 /**
- * A simple {@link Fragment} subclass.
- * create an instance of this fragment.
+ * 時刻検索履歴フラグメント
  */
 public class TimeTableHistoryFragment extends Fragment {
 

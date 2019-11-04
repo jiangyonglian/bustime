@@ -118,7 +118,7 @@ public class TokyoBusTimeSearchImpl implements BusTimeSearch {
         //old:http://tobus.jp/blsys/navi?LCD=&VCD=SelectDest&ECD=SelectDest&slst=2233&pl=1&RTMCD=57
         //new:http://tobus.jp/blsys/navi?LCD=&VCD=cresultttbl&ECD=show&slst=916&pl=1&RTMCD=57&lrid=2&tgo=1
         final String urlTemplate =
-                "http://tobus.jp/blsys/navi?LCD=&VCD=cresultttbl&ECD=show&slst={0}&{1}";
+                "https://tobus.jp/blsys/navi?LCD=&VCD=cresultttbl&ECD=show&slst={0}&{1}";
 
         String url = urlTemplate.replace("{0}",String.valueOf(busStopAroundPoint.getBusStopCD()));
         if(busStopAroundPoint.getDirection() == BusDirection.END_START){

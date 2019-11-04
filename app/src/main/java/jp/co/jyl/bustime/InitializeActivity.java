@@ -3,7 +3,6 @@ package jp.co.jyl.bustime;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 
 import jp.co.jyl.bustime.repository.BusRepository;

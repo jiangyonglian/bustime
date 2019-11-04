@@ -3,7 +3,7 @@ package jp.co.jyl.bustime.view.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,11 +31,7 @@ import jp.co.jyl.bustime.repository.RepositoryFactory;
 import jp.co.jyl.bustime.view.Helper;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * to handle interaction events.
- * Use the {@link BusStopSearchFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * バス停検索フラグメント
  */
 public class BusStopSearchFragment extends Fragment {
 

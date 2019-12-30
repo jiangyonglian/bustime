@@ -6,7 +6,8 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="jp.co.jyl.bustime.InitializeActivity">
 
-    <TextView android:text="@string/Initializing" android:layout_width="wrap_content"
+    <TextView android:text="@string/Initializing"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <ProgressBar

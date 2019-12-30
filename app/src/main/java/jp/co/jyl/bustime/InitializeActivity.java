@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import jp.co.jyl.bustime.repository.BusRepository;
 import jp.co.jyl.bustime.repository.DBHelper;
 import jp.co.jyl.bustime.repository.RepositoryFactory;
@@ -17,6 +21,12 @@ public class InitializeActivity extends Activity {
         setContentView(R.layout.activity_initialize);
         DBHelper.initializeDB(this.getApplicationContext());
         new InitializeTask().execute();
+
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
     }
 
 
